@@ -6,20 +6,20 @@ import Detail from "./Detail";
 
 function App() {
   const [list, setList] = React.useState([
-    "월",
-    "화",
-    "수",
-    "목",
-    "금",
-    "토",
-    "일",
+    "월요일",
+    "화요일",
+    "수요일",
+    "목요일",
+    "금요일",
+    "토요일",
+    "일요일",
   ])
 
   return (
     <Container>
       <Routes>
         <Route path="/" element={<DayRate list={list}/>} />
-        <Route path="/detail" element={<Detail />} />
+        <Route path="/detail/:choicedDay" element={<Detail list={list}/>} />
       </Routes>
     </Container>
   );

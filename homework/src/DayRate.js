@@ -16,7 +16,7 @@ export default function DayRate(props) {
                         <Day>{v}</Day>
                         <Rate>0 0 0 0 0</Rate>
                         <Button onClick={() => {
-                            navigate("/detail")
+                            navigate(`/detail/${day_list[i]}`)
                         }}>보러가기</Button>
                     </Container>
                 )
