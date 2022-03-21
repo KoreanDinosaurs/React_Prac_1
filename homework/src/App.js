@@ -1,12 +1,26 @@
 import React from "react";
 import {Route, Routes} from "react-router-dom"
 import styled from "styled-components"
+import DayRate from "./DayRate";
 
 function App() {
+  const [list, setList] = React.useState([
+    "월",
+    "화",
+    "수",
+    "목",
+    "금",
+    "토",
+    "일",
+  ])
+
   return (
     <Container>
       <h1>내 일주일은?</h1>
       <hr />
+      <Routes>
+        <Route path="/" element={<DayRate list={list}/>} />
+      </Routes>
     </Container>
   );
 }
