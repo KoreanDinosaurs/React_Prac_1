@@ -5,7 +5,7 @@ import DayRate from "./DayRate";
 import Detail from "./Detail";
 
 function App() {
-  const [list, setList] = React.useState([
+  const [list] = React.useState([
     "월요일",
     "화요일",
     "수요일",
@@ -33,8 +33,11 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 
-  border: 1px solid black;
+  border: 1px solid transparent;
   border-radius: 10px;
-  padding: 1em;
+  padding: 2em;
+
+  background-color: white;
 `;
