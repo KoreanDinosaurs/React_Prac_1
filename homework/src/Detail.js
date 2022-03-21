@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 
-export default function Detail(props){
+export default function Detail(){
     const navigate = useNavigate();
     const choicedDay = useParams();
     
