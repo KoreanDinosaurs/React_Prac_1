@@ -5,21 +5,13 @@ import DayRate from "./DayRate";
 import Detail from "./Detail";
 
 function App() {
-  const [list] = React.useState([
-    "월요일",
-    "화요일",
-    "수요일",
-    "목요일",
-    "금요일",
-    "토요일",
-    "일요일",
-  ])
+  
 
   return (
     <Container>
       <Routes>
-        <Route path="/" element={<DayRate list={list}/>} />
-        <Route path="/detail/:choicedDay" element={<Detail list={list}/>} />
+        <Route path="/" element={<DayRate />} />
+        <Route path="/detail/:choicedDay" element={<Detail />} />
       </Routes>
     </Container>
   );

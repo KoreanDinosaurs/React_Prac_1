@@ -1,9 +1,10 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import {useSelector} from "react-redux"
 
-export default function DayRate(props) {
-    const day_list = props.list;
+export default function DayRate() {
+    const day_list = useSelector(state => state.data.list)
     const navigate = useNavigate();
 
     return(
@@ -48,7 +49,6 @@ const Day = styled.span`
 const Rate = styled.div`
     font-size: 2rem;
     padding-bottom: 0.7rem;
-    background-color:white
 `;
 
 const Button = styled.button`
