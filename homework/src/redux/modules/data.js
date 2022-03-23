@@ -4,13 +4,13 @@
 const LOAD = 'data/LOAD';
 const UPDATE = 'data/UPDATE';
 const initialState = {list: [
-  {day: "일요일", rank: 0},
-  {day: "월요일", rank: 0},
-  {day: "화요일", rank: 0},
-  {day: "수요일", rank: 0},
-  {day: "목요일", rank: 0},
-  {day: "금요일", rank: 0},
-  {day: "토요일", rank: 0},
+  {id: 0, day: "일요일", rank: 0},
+  {id: 1, day: "월요일", rank: 0},
+  {id: 2, day: "화요일", rank: 0},
+  {id: 3, day: "수요일", rank: 0},
+  {id: 4, day: "목요일", rank: 0},
+  {id: 5, day: "금요일", rank: 0},
+  {id: 6, day: "토요일", rank: 0},
 ]};
 
 // Action Creators

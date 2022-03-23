@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import {useSelector} from "react-redux"
@@ -8,9 +8,11 @@ export default function DayRate() {
     const navigate = useNavigate();
     
     // 현재 요일에 맞게 day_list를 재배열
-    // const getDay = new Date().getDay()
-    // day_list.push(...day_list.splice(0, getDay))
-    // console.log(day_list)
+    const week_day = day_list.map((v) => {
+        const getDay = new Date().getDay();
+        const num = getDay + v.id > 6 ? getDay + v.id - 7 : getDay + v.id;
+        return day_list[num]
+    })
     
     // 1-5까지의 정수를 랜덤 출력
     const randomInt = () => {
@@ -21,9 +23,9 @@ export default function DayRate() {
         <div style={{width: "100%", height: "100%"}}>
             <Title>내 일주일은?</Title>
             <Line />
-            {day_list.map((v, i) => {
+            {week_day.map((v, i) => {
                 return(
-                    <Wrap key={i}>
+                    <Wrap key={v.id}>
                         <Day>{v.day}</Day>
                         <Rate random={randomInt}>
                             <div />
@@ -33,7 +35,7 @@ export default function DayRate() {
                             <div />
                         </Rate>
                         <Button onClick={() => {
-                            navigate(`/detail/${day_list[i].day}`)
+                            navigate(`/detail/${week_day[i].day}`)
                         }}>보러가기</Button>
                     </Wrap>
                 )
