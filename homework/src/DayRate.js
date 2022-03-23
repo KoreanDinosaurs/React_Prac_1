@@ -14,10 +14,10 @@ export default function DayRate() {
             {day_list.map((v, i) => {
                 return(
                     <Wrap key={i}>
-                        <Day>{v}</Day>
+                        <Day>{v.day}</Day>
                         <Rate>⭐⭐⭐⭐⭐</Rate>
                         <Button onClick={() => {
-                            navigate(`/detail/${day_list[i]}`)
+                            navigate(`/detail/${day_list[i].day}`)
                         }}>보러가기</Button>
                     </Wrap>
                 )

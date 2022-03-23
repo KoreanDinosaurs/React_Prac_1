@@ -5,7 +5,6 @@ import DayRate from "./DayRate";
 import Detail from "./Detail";
 
 function App() {
-  
 
   return (
     <Container>

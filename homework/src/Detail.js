@@ -1,20 +1,45 @@
-import React from "react";
+import React, { useRef } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
+import {updateData} from "./redux/modules/data"
 
 export default function Detail(){
     const navigate = useNavigate();
     const choicedDay = useParams();
+    const dispatch = useDispatch();
+    const rank_list = useSelector(state => state.data.list)
     
+    const colorChange = (e) => {
+        const elemNum = e.target.dataset.num;
+        const elemArr = e.target.parentNode.childNodes;
+        
+        for(let j = 0; j < 5; j++){
+            elemArr[j].style.backgroundColor = "transparent";
+        }
+
+        for(let i = 0; i < elemNum; i++){
+            elemArr[i].style.backgroundColor = "#64b5f6";
+        }
+        
+        dispatch(updateData([choicedDay.choicedDay, elemNum]))
+    };
+    
+
     return(
         <div>
             <ChoicedDay>{choicedDay.choicedDay}</ChoicedDay>
             <Text>평점 남기기</Text>
-            <Rate>⭐⭐⭐⭐⭐</Rate>
+            <Rate>
+                <div onClick={colorChange} data-num= '1'/>
+                <div onClick={colorChange} data-num= '2'/>
+                <div onClick={colorChange} data-num= '3'/>
+                <div onClick={colorChange} data-num= '4'/>
+                <div onClick={colorChange} data-num= '5'/>
+            </Rate>
             <Button onClick={() => {
                 navigate(-1)
             }}>RECORD</Button>
-            
         </div>
     )
 }
@@ -35,7 +60,17 @@ const Text = styled.h1`
 const Rate = styled.div`
     font-size: 2rem;
     padding-bottom: 0.7rem;
-    margin: .5em 0;
+    margin: .5em 0; 
+    display: flex;
+    & > div {
+        width: 40px;
+        height: 40px;
+        background-color: transparent;
+        border: 2px solid #64b5f6;
+        border-radius: 40px;
+        margin: 5px;
+        cursor: pointer;
+    }
 `;
 
 const Button = styled.button`
