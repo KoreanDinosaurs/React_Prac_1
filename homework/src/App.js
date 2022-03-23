@@ -20,6 +20,7 @@ export default App;
 
 const Container = styled.div`
   min-width: 400px;
+  width: 400px;
   height: 60vh;
   display: flex;
   flex-direction: column;

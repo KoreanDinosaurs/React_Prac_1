@@ -4,13 +4,13 @@
 const LOAD = 'data/LOAD';
 const UPDATE = 'data/UPDATE';
 const initialState = {list: [
+  {day: "일요일", rank: 0},
   {day: "월요일", rank: 0},
   {day: "화요일", rank: 0},
   {day: "수요일", rank: 0},
   {day: "목요일", rank: 0},
   {day: "금요일", rank: 0},
   {day: "토요일", rank: 0},
-  {day: "일요일", rank: 0},
 ]};
 
 // Action Creators
@@ -31,7 +31,6 @@ export default function reducer(state = initialState, action = {}) {
       return {list: new_data_list};
     case UPDATE: 
       const update_data_list = state.list.map(v => v.day === action.data_arr[0] ? {...v, rank: parseInt(action.data_arr[1])} : v);
-      console.log(update_data_list)
       return {list: update_data_list};
     default: return state;
   }
