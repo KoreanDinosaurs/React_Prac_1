@@ -12,7 +12,7 @@ function App() {
       <Routes>
         <Route path="/" element={<DayRate />} />
         <Route path="/detail/:choicedDay" element={<Detail />} />
-        <Route path="/*" element={<NotFound />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </Container>
   );
