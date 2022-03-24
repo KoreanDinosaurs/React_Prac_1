@@ -3,6 +3,7 @@ import {Route, Routes} from "react-router-dom"
 import styled from "styled-components"
 import DayRate from "./DayRate";
 import Detail from "./Detail";
+import NotFound from "./NotFound";
 
 function App() {
 
@@ -11,6 +12,7 @@ function App() {
       <Routes>
         <Route path="/" element={<DayRate />} />
         <Route path="/detail/:choicedDay" element={<Detail />} />
+        <Route path="/*" element={<NotFound />} />
       </Routes>
     </Container>
   );

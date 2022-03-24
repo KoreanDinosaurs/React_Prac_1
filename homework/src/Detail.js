@@ -12,17 +12,6 @@ export default function Detail(){
     
     const colorChange = (e) => {
         const elemNum = e.target.dataset.num;
-        console.log(e.target.dataset)
-        // const elemArr = e.target.parentNode.childNodes;
-        
-        // for(let j = 0; j < 5; j++){
-        //     elemArr[j].style.backgroundColor = "transparent";
-        // }
-
-        // for(let i = 0; i < elemNum; i++){
-        //     elemArr[i].style.backgroundColor = "#64b5f6";
-        // }
-        
         dispatch(updateData([choicedDay.choicedDay, elemNum]))
     };
 
