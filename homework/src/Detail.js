@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
@@ -20,6 +20,19 @@ export default function Detail(){
         return rank
     }
 
+    useEffect(() => {
+        const press = (e) => {
+            if(e.key <= 5 && e.key >= 0){
+                dispatch(updateData([choicedDay.choicedDay, e.key]))
+            }
+        }
+        
+        window.addEventListener("keydown", press);
+
+        return () => window.removeEventListener("keydown", press);
+    });
+    
+
     return(
         <div>
             <ChoicedDay>{choicedDay.choicedDay}</ChoicedDay>
@@ -32,7 +45,7 @@ export default function Detail(){
                 <div onClick={colorChange} data-num= '5'/>
             </Rate>
             <Button onClick={() => {
-                navigate(-1)
+                navigate(-1);
             }}>RECORD</Button>
         </div>
     )
