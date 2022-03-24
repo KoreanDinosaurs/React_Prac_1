@@ -26,7 +26,6 @@ export default function Detail(){
                 dispatch(updateData([choicedDay.choicedDay, e.key]))
             }
         }
-        
         window.addEventListener("keydown", press);
 
         return () => window.removeEventListener("keydown", press);
@@ -69,6 +68,7 @@ const Rate = styled.div`
     padding-bottom: 0.7rem;
     margin: .5em 0; 
     display: flex;
+    
     & > div {
         width: 40px;
         height: 40px;
